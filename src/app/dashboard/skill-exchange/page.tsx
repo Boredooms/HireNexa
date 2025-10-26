@@ -61,11 +61,15 @@ export default function SkillExchangePage() {
   const loadMatches = async () => {
     try {
       setLoading(true)
+      console.log('🔍 Fetching matches with filter:', filter)
       const response = await fetch(`/api/skill-exchange/matches?filter=${filter}`)
+      console.log('📡 Response status:', response.status)
       const data = await response.json()
+      console.log('📦 Matches data:', data)
+      console.log('✅ Total matches found:', data.matches?.length || 0)
       setMatches(data.matches || [])
     } catch (error) {
-      console.error('Error loading matches:', error)
+      console.error('❌ Error loading matches:', error)
     } finally {
       setLoading(false)
     }

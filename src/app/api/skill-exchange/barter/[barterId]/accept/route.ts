@@ -48,7 +48,7 @@ export async function POST(
     const { error: updateError } = await supabase
       .from('skill_barter_proposals')
       .update({
-        status: 'accepted',
+        status: 'active',
         accepted_at: new Date().toISOString(),
         acceptance_tx_hash: blockchain_tx_hash
       })

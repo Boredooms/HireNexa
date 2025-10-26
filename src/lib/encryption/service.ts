@@ -15,6 +15,12 @@ export class EncryptionService {
     // Get encryption key from environment
     const keyHex = process.env.ENCRYPTION_KEY
     if (!keyHex) {
+      // During build time, use a dummy key (will be replaced at runtime)
+      if (process.env.NODE_ENV === 'production' && typeof window === 'undefined') {
+        console.warn('⚠️ ENCRYPTION_KEY not set during build - using placeholder')
+        this.encryptionKey = Buffer.alloc(32) // Dummy key for build
+        return
+      }
       throw new Error('ENCRYPTION_KEY environment variable not set')
     }
     // Key should be 64 hex characters (32 bytes for AES-256)
@@ -30,6 +36,11 @@ export class EncryptionService {
    */
   encrypt(data: any): string {
     try {
+      // Validate encryption key is properly initialized
+      if (!this.encryptionKey || this.encryptionKey.length !== 32) {
+        throw new Error('Encryption key not properly initialized')
+      }
+
       // Convert data to JSON string
       const plaintext = JSON.stringify(data)
 

@@ -1,8 +1,59 @@
 {
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "regions": ["iad1"],
+  "functions": {
+    "app/api/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    }
+  ],
   "crons": [
     {
       "path": "/api/cron/check-updates",
       "schedule": "0 0 * * 0"
     }
-  ]
+  ],
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": "@next_public_supabase_url",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@next_public_supabase_anon_key",
+    "SUPABASE_SERVICE_ROLE_KEY": "@supabase_service_role_key",
+    "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY": "@next_public_clerk_publishable_key",
+    "CLERK_SECRET_KEY": "@clerk_secret_key",
+    "ENCRYPTION_KEY": "@encryption_key",
+    "GEMINI_API_KEY": "@gemini_api_key",
+    "NEXT_PUBLIC_TALKJS_APP_ID": "@next_public_talkjs_app_id",
+    "TALKJS_SECRET_KEY": "@talkjs_secret_key",
+    "NEXT_PUBLIC_ZEGOCLOUD_APP_ID": "@next_public_zegocloud_app_id",
+    "NEXT_PUBLIC_ZEGOCLOUD_APP_SIGN": "@next_public_zegocloud_app_sign",
+    "CELO_PRIVATE_KEY": "@celo_private_key",
+    "NEXT_PUBLIC_CELO_NETWORK": "@next_public_celo_network",
+    "NEXT_PUBLIC_CELO_RPC_URL": "@next_public_celo_rpc_url",
+    "PINATA_JWT": "@pinata_jwt"
+  }
 }

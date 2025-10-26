@@ -2,20 +2,24 @@ import { auth } from '@clerk/nextjs/server'
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 
+// Mark as dynamic route (uses cookies/headers)
+export const dynamic = 'force-dynamic'
+
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url)
     const code = searchParams.get('code')
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
 
     if (!code) {
-      return NextResponse.redirect('/dashboard/github?error=no_code')
+      return NextResponse.redirect(`${baseUrl}/dashboard/github?error=no_code`)
     }
 
     // Check Clerk authentication
     const { userId } = await auth()
 
     if (!userId) {
-      return NextResponse.redirect('/sign-in')
+      return NextResponse.redirect(`${baseUrl}/sign-in`)
     }
 
     // Exchange code for access token
@@ -35,7 +39,7 @@ export async function GET(request: Request) {
     const tokenData = await tokenResponse.json()
 
     if (tokenData.error) {
-      return NextResponse.redirect('/dashboard/github?error=oauth_failed')
+      return NextResponse.redirect(`${baseUrl}/dashboard/github?error=oauth_failed`)
     }
 
     const accessToken = tokenData.access_token
@@ -72,9 +76,10 @@ export async function GET(request: Request) {
     }, { onConflict: 'user_id' })
 
     // Redirect back to GitHub page with success
-    return NextResponse.redirect(`${process.env.NEXT_PUBLIC_APP_URL}/dashboard/github?connected=true`)
+    return NextResponse.redirect(`${baseUrl}/dashboard/github?connected=true`)
   } catch (error) {
     console.error('Error in GitHub OAuth callback:', error)
-    return NextResponse.redirect('/dashboard/github?error=callback_failed')
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
+    return NextResponse.redirect(`${baseUrl}/dashboard/github?error=callback_failed`)
   }
 }

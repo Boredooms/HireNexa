@@ -10,19 +10,24 @@ const supabase = createClient(
 export async function GET(request: NextRequest) {
   try {
     const { userId } = await auth()
+    console.log('🔐 API: User ID from Clerk:', userId)
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
     const { searchParams } = new URL(request.url)
     const filter = searchParams.get('filter') || 'all'
+    console.log('🔍 API: Filter:', filter)
 
     // Get current user's profile
-    const { data: currentUser } = await supabase
+    const { data: currentUser, error: profileError } = await supabase
       .from('skill_exchange_profiles')
       .select('*')
       .eq('user_id', userId)
       .single()
+
+    console.log('👤 API: Current user profile:', currentUser ? 'Found' : 'Not found')
+    if (profileError) console.log('❌ API: Profile error:', profileError)
 
     if (!currentUser) {
       return NextResponse.json({ 
@@ -44,19 +49,26 @@ export async function GET(request: NextRequest) {
     const { data: allProfiles, error } = await query
 
     if (error) throw error
+    console.log('📋 API: Found', allProfiles?.length || 0, 'other profiles')
 
     // Calculate match scores and fetch barter status
     const matches = await Promise.all(allProfiles?.map(async (profile) => {
       const matchScore = calculateMatchScore(currentUser, profile)
       
       // Check if there's an active barter with this user
-      const { data: barter } = await supabase
+      const { data: barters, error: barterError } = await supabase
         .from('skill_barter_proposals')
         .select('id, status')
         .or(`and(proposer_id.eq.${userId},recipient_id.eq.${profile.user_id}),and(proposer_id.eq.${profile.user_id},recipient_id.eq.${userId})`)
         .order('created_at', { ascending: false })
         .limit(1)
-        .single()
+      
+      if (barterError) console.log('⚠️ API: Barter query error for profile', profile.user_id, ':', barterError)
+      const barter = barters?.[0] || null
+      
+      if (barter) {
+        console.log('🤝 API: Found barter for', profile.name, '- Status:', barter.status, 'ID:', barter.id)
+      }
       
       return {
         id: profile.id,
@@ -84,6 +96,9 @@ export async function GET(request: NextRequest) {
     const filteredMatches = filter === 'top-matches' 
       ? matches.filter(m => m.match_score >= 70)
       : matches
+
+    console.log('✅ API: Returning', filteredMatches.length, 'matches')
+    console.log('🤝 API: Barters found:', filteredMatches.filter(m => m.barter_status !== 'none').length)
 
     return NextResponse.json({ matches: filteredMatches })
   } catch (error) {
