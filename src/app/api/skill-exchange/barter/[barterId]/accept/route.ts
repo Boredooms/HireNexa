@@ -45,16 +45,21 @@ export async function POST(
     }
 
     // Update barter status
-    const { error: updateError } = await supabase
+    const { data: updatedBarter, error: updateError } = await supabase
       .from('skill_barter_proposals')
       .update({
-        status: 'active',
+        status: 'accepted',
         accepted_at: new Date().toISOString(),
         acceptance_tx_hash: blockchain_tx_hash
       })
       .eq('id', barterId)
+      .select()
+      .single()
 
-    if (updateError) throw updateError
+    if (updateError) {
+      console.error('Database update error:', updateError)
+      throw new Error(`Failed to update barter status: ${updateError.message}`)
+    }
 
     // Send notification to proposer
     await supabase

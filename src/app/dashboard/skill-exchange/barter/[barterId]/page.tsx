@@ -95,7 +95,11 @@ export default function BarterDetailsPage() {
         })
       })
 
-      if (!response.ok) throw new Error('Failed to update barter status')
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to update barter status')
+      }
 
       alert('✅ Barter accepted successfully!')
       router.push('/dashboard/skill-exchange')
