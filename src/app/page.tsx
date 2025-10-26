@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { ChevronRight, Zap, Shield, Sparkles, Code2, Users, Rocket, Lock, Zap as ZapIcon, Package, RefreshCw, Target, Lock as LockIcon } from 'lucide-react'
 
@@ -9,6 +9,16 @@ const Orb = dynamic(() => import('@/components/Orb'), { ssr: false })
 
 export default function Home() {
   const [activeRole, setActiveRole] = useState<string | null>(null)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
@@ -18,7 +28,11 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white overflow-hidden">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 px-4 py-4">
+      <nav className={`fixed top-0 w-full z-50 px-4 py-4 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-black/40 backdrop-blur-md border-b border-white/10 shadow-lg shadow-[#3B82F6]/10' 
+          : 'bg-transparent'
+      }`}>
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-3">
             <div className="text-2xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#60A5FA] bg-clip-text text-transparent">
