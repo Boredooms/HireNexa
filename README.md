@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🚀 HireNexa - Blockchain-Powered AI Portfolio Platform
 
 > **Celo-Native** • **AI-Powered** • **NFT Credentials** • **Auto-Updating Portfolios**
@@ -970,6 +969,8 @@ MIT License - see [LICENSE](./LICENSE) for details
 
 If you find HireNexa useful, please consider giving it a star! ⭐
 
+
+Live Demo Link : https://hire-nexa-qqrt.vercel.app/
 ---
 
 **Built with ❤️ using Celo, Next.js, and AI**
