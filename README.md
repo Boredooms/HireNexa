@@ -34,18 +34,18 @@ HireNexa supports **4 distinct user roles** with unique workflows:
 - **Requirements:**
   - Apply via `/dashboard/recruiter/apply`
   - Admin approval required
-  - 10 cUSD deposit (9.5 cUSD refunded)
-  - 0.5 cUSD platform fee
+  - 10 celo sepolia testnet deposit (9.5 celo sepolia testnet refunded)
+  - 0.5 celo sepolia testnet platform fee
 
 #### **Peer Reviewers/Verifiers** (Requires Application + Deposit)
 - Verify developer skills
-- Earn 4.5 cUSD per verification
+- Earn 4.5 celo sepolia testnet per verification
 - Build reputation score
 - Access to verification dashboard
 - **Requirements:**
   - Apply via `/dashboard/peer-review/apply`
   - Admin approval required
-  - 5 cUSD deposit
+  - 5 celo sepolia testnet deposit
   - Earn from verifications
 
 #### **Admins** (Platform Managers)
@@ -86,7 +86,7 @@ HireNexa supports **4 distinct user roles** with unique workflows:
 ### 🔄 Skill Exchange (Barter System)
 - **Peer-to-Peer Learning** - Exchange skills with other developers
 - **Automated Matching** - Platform matches complementary skills
-- **Escrow Protection** - 2 cUSD deposit per user (refunded on completion)
+- **Escrow Protection** - 2 celo sepolia testnet deposit per user (refunded on completion)
 - **Video Integration** - Built-in video calls via Zego Cloud
 - **Mutual Certificates** - Both users receive NFT certificates
 - **Example:** "I teach React, I want to learn Python" ↔ "I teach Python, I want to learn React"
@@ -102,7 +102,7 @@ HireNexa supports **4 distinct user roles** with unique workflows:
 ### 🔍 Peer-to-Peer Skill Verification
 - **On-Chain Verification** - Skills verified and recorded on blockchain
 - **Confidence Scoring** - 0-100 score based on evidence
-- **Earn While Verifying** - 4.5 cUSD per verification
+- **Earn While Verifying** - 4.5 celo sepolia testnet per verification
 - **Reputation System** - Build credibility as a verifier
 - **Evidence-Based** - Review actual code and projects
 - **Dispute Resolution** - Built-in dispute handling
@@ -375,7 +375,7 @@ User connects GitHub → Gemini analyzes repos → User connects MetaMask
    - Reviewers analyze code/projects
    - Assign confidence score (0-100)
    - Verification recorded on-chain
-   - Reviewer earns 4.5 cUSD
+   - Reviewer earns 4.5 celo sepolia testnet
 
 4. **Complete Assignments**
    - Browse available assignments
@@ -403,9 +403,9 @@ User connects GitHub → Gemini analyzes repos → User connects MetaMask
 
 2. **Approval & Deposit**
    - Admin approves application
-   - Deposit 10 cUSD to RecruiterEscrow
-   - Platform fee: 0.5 cUSD
-   - Refund: 9.5 cUSD
+   - Deposit 10 celo sepolia testnet to RecruiterEscrow
+   - Platform fee: 0.5 celo sepolia testnet
+   - Refund: 9.5 celo sepolia testnet
    - Role changed to 'recruiter'
 
 3. **Post Assignments**
@@ -430,7 +430,7 @@ User connects GitHub → Gemini analyzes repos → User connects MetaMask
 
 2. **Approval & Deposit**
    - Admin approves application
-   - Deposit 5 cUSD to PeerReviewEscrow
+   - Deposit 5 celo sepolia testnet to PeerReviewEscrow
    - Role changed to 'verifier'
    - Can now verify skills
 
@@ -439,7 +439,7 @@ User connects GitHub → Gemini analyzes repos → User connects MetaMask
    - Review code and projects
    - Assign confidence score
    - Submit verification
-   - Earn 4.5 cUSD per verification
+   - Earn 4.5 celo sepolia testnet per verification
    - Build reputation score
 
 ### **Admin Journey**
@@ -976,5 +976,3 @@ If you find HireNexa useful, please consider giving it a star! ⭐
 
 **Your portfolio is now a verifiable, updatable, encrypted NFT that only you control!** 🚀
 =======
-# HireNexa
->>>>>>> 7883020d20dfcf66ce9b3589dcee6538bf36b7e1
