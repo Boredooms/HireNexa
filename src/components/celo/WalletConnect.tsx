@@ -100,15 +100,15 @@ export default function WalletConnect() {
   }, [])
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-yellow-400">
+    <div className="bg-white/5 backdrop-blur-sm rounded-lg shadow-lg p-6 border border-white/20">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-green-500 rounded-full flex items-center justify-center">
             <span className="text-white font-bold text-xl">C</span>
           </div>
           <div>
-            <h3 className="font-bold text-gray-900">Celo Wallet</h3>
-            <p className="text-xs text-gray-500">
+            <h3 className="font-bold text-white">Celo Wallet</h3>
+            <p className="text-xs text-gray-400">
               {chainId === '0xaa044c' ? 'Sepolia ⭐' : chainId === '0xa4ec' ? 'Mainnet' : chainId === '0xaef3' ? 'Alfajores' : 'Not Connected'}
             </p>
           </div>
@@ -116,8 +116,8 @@ export default function WalletConnect() {
         
         {connected && (
           <div className="text-right">
-            <p className="text-sm text-gray-600">Balance</p>
-            <p className="text-xl font-bold text-green-600">{balance} CELO</p>
+            <p className="text-sm text-gray-400">Balance</p>
+            <p className="text-xl font-bold text-green-400">{balance} CELO</p>
           </div>
         )}
       </div>
@@ -126,22 +126,22 @@ export default function WalletConnect() {
         <button
           onClick={connectWallet}
           disabled={loading}
-          className="w-full px-6 py-3 bg-gradient-to-r from-yellow-400 to-green-500 text-white rounded-lg font-semibold hover:from-yellow-500 hover:to-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition"
+          className="w-full px-6 py-3 bg-gradient-to-r from-yellow-400 to-green-500 text-white rounded-lg font-semibold hover:from-yellow-500 hover:to-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition shadow-lg"
         >
           {loading ? 'Connecting...' : 'Connect Wallet'}
         </button>
       ) : (
         <div className="space-y-3">
-          <div className="p-3 bg-gray-50 rounded-lg">
-            <p className="text-xs text-gray-600 mb-1">Connected Address</p>
-            <p className="font-mono text-sm text-gray-900 break-all">
+          <div className="p-3 bg-white/10 rounded-lg border border-white/20">
+            <p className="text-xs text-gray-400 mb-1">Connected Address</p>
+            <p className="font-mono text-sm text-white break-all">
               {address.slice(0, 6)}...{address.slice(-4)}
             </p>
           </div>
           
           <button
             onClick={disconnectWallet}
-            className="w-full px-6 py-2 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition"
+            className="w-full px-6 py-2 border border-white/20 text-gray-300 rounded-lg font-semibold hover:bg-white/10 transition"
           >
             Disconnect
           </button>
@@ -149,8 +149,8 @@ export default function WalletConnect() {
       )}
 
       {!connected && (
-        <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-          <p className="text-xs text-blue-700">
+        <div className="mt-4 p-3 bg-blue-500/10 border border-blue-500/30 rounded-lg">
+          <p className="text-xs text-blue-300">
             💡 <strong>Tip:</strong> Click "Sepolia Testnet ⭐" button below to add Celo Sepolia network to MetaMask, then connect your wallet.
           </p>
         </div>

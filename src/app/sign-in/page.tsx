@@ -9,14 +9,14 @@ export default async function SignInPage() {
     redirect('/dashboard')
   }
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-pink-100">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-[#0f0f1e] to-black">
       <div className="w-full max-w-2xl px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-3">
-            Welcome to <span className="text-purple-600">HireNexa</span>
+          <h1 className="text-5xl font-bold text-white mb-3">
+            Welcome to <span className="text-[#3B82F6]">HireNexa</span>
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-400">
             Choose your role to sign in
           </p>
         </div>
@@ -26,42 +26,42 @@ export default async function SignInPage() {
           {/* Developer Card */}
           <Link
             href="/sign-in/user"
-            className="group block p-8 bg-white border-2 border-black rounded-lg hover:shadow-xl transition-all duration-300 hover:border-indigo-600"
+            className="group block p-8 bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg hover:shadow-xl transition-all duration-300 hover:border-[#3B82F6]"
           >
             <div className="text-center">
               {/* Icon */}
-              <div className="inline-block mb-4 p-4 bg-indigo-100 rounded-lg border-2 border-indigo-600 group-hover:bg-indigo-200 transition">
+              <div className="inline-block mb-4 p-4 bg-[#3B82F6]/20 rounded-lg border border-[#3B82F6]/50 group-hover:bg-[#3B82F6]/30 transition">
                 <span className="text-5xl">👨‍💻</span>
               </div>
 
               {/* Title */}
-              <h2 className="text-2xl font-bold text-gray-900 mb-3">
+              <h2 className="text-2xl font-bold text-white mb-3">
                 Developer
               </h2>
 
               {/* Description */}
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-300 mb-6">
                 Build your portfolio, earn CELO rewards, and exchange skills with other developers.
               </p>
 
               {/* Features */}
-              <ul className="text-sm text-gray-700 space-y-2 mb-6 text-left">
+              <ul className="text-sm text-gray-300 space-y-2 mb-6 text-left">
                 <li className="flex items-center gap-2">
-                  <span className="text-indigo-600">✓</span> Portfolio NFT
+                  <span className="text-[#3B82F6]">✓</span> Portfolio NFT
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-indigo-600">✓</span> Earn CELO
+                  <span className="text-[#3B82F6]">✓</span> Earn CELO
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-indigo-600">✓</span> Skill Exchange
+                  <span className="text-[#3B82F6]">✓</span> Skill Exchange
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-indigo-600">✓</span> Peer Review
+                  <span className="text-[#3B82F6]">✓</span> Peer Review
                 </li>
               </ul>
 
               {/* Button */}
-              <div className="px-6 py-3 bg-indigo-600 text-white font-bold rounded border-2 border-indigo-600 group-hover:bg-indigo-700 transition inline-block w-full text-center">
+              <div className="px-6 py-3 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold rounded border border-[#3B82F6] group-hover:shadow-lg group-hover:shadow-[#3B82F6]/50 transition inline-block w-full text-center">
                 Sign In as Developer
               </div>
             </div>
@@ -70,42 +70,42 @@ export default async function SignInPage() {
           {/* Recruiter Card */}
           <Link
             href="/sign-in/recruiter"
-            className="group block p-8 bg-white border-2 border-black rounded-lg hover:shadow-xl transition-all duration-300 hover:border-red-600"
+            className="group block p-8 bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg hover:shadow-xl transition-all duration-300 hover:border-red-500"
           >
             <div className="text-center">
               {/* Icon */}
-              <div className="inline-block mb-4 p-4 bg-red-100 rounded-lg border-2 border-red-600 group-hover:bg-red-200 transition">
+              <div className="inline-block mb-4 p-4 bg-red-500/20 rounded-lg border border-red-500/50 group-hover:bg-red-500/30 transition">
                 <span className="text-5xl">💼</span>
               </div>
 
               {/* Title */}
-              <h2 className="text-2xl font-bold text-gray-900 mb-3">
+              <h2 className="text-2xl font-bold text-white mb-3">
                 Recruiter
               </h2>
 
               {/* Description */}
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-300 mb-6">
                 Post assignments, review submissions, manage payments, and hire verified developers.
               </p>
 
               {/* Features */}
-              <ul className="text-sm text-gray-700 space-y-2 mb-6 text-left">
+              <ul className="text-sm text-gray-300 space-y-2 mb-6 text-left">
                 <li className="flex items-center gap-2">
-                  <span className="text-red-600">✓</span> Post Assignments
+                  <span className="text-red-400">✓</span> Post Assignments
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-red-600">✓</span> Review Submissions
+                  <span className="text-red-400">✓</span> Review Submissions
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-red-600">✓</span> Manage Payments
+                  <span className="text-red-400">✓</span> Manage Payments
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-red-600">✓</span> Hire Talent
+                  <span className="text-red-400">✓</span> Hire Talent
                 </li>
               </ul>
 
               {/* Button */}
-              <div className="px-6 py-3 bg-red-600 text-white font-bold rounded border-2 border-red-600 group-hover:bg-red-700 transition inline-block w-full text-center">
+              <div className="px-6 py-3 bg-red-600 text-white font-bold rounded border border-red-600 group-hover:shadow-lg group-hover:shadow-red-600/50 transition inline-block w-full text-center">
                 Sign In as Recruiter
               </div>
             </div>
@@ -114,9 +114,9 @@ export default async function SignInPage() {
 
         {/* Footer */}
         <div className="text-center mt-12">
-          <p className="text-gray-600">
+          <p className="text-gray-400">
             Don't have an account?{' '}
-            <Link href="/sign-up" className="font-bold text-purple-600 hover:text-purple-700 transition">
+            <Link href="/sign-up" className="font-bold text-[#3B82F6] hover:text-[#60A5FA] transition">
               Sign up here
             </Link>
           </p>

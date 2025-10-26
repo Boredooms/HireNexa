@@ -178,22 +178,22 @@ export default function SubmitSolutionPage({ params }: { params: { id: string } 
   }
 
   if (!assignment) {
-    return <div className="min-h-screen bg-[#FFFEF7] flex items-center justify-center">
-      <div className="text-xl font-bold">Loading assignment...</div>
+    return <div className="min-h-screen bg-gradient-to-br from-black via-[#0f0f1e] to-black flex items-center justify-center">
+      <div className="text-xl font-bold text-white">Loading assignment...</div>
     </div>
   }
 
   return (
-    <div className="min-h-screen bg-[#FFFEF7]">
-      <header className="bg-white shadow border-b-2 border-black">
+    <div className="min-h-screen bg-gradient-to-br from-black via-[#0f0f1e] to-black">
+      <header className="bg-white/5 backdrop-blur-sm border-b border-white/10">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center gap-4">
-            <Link href={`/dashboard/assignments/${params.id}`} className="text-gray-600 hover:text-black">
+            <Link href={`/dashboard/assignments/${params.id}`} className="text-gray-400 hover:text-white">
               ← Back
             </Link>
             <div>
-              <h1 className="text-2xl font-bold text-black">Submit Solution</h1>
-              <p className="text-gray-600">{assignment.title}</p>
+              <h1 className="text-2xl font-bold text-white">Submit Solution</h1>
+              <p className="text-gray-400">{assignment.title}</p>
             </div>
           </div>
         </div>
@@ -204,26 +204,26 @@ export default function SubmitSolutionPage({ params }: { params: { id: string } 
         <NetworkChecker />
         
         {/* Assignment Info */}
-        <div className="bg-white border-2 border-black rounded-lg p-6 mb-8">
-          <h2 className="text-xl font-bold text-black mb-4">Assignment Details</h2>
+        <div className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg p-6 mb-8">
+          <h2 className="text-xl font-bold text-white mb-4">Assignment Details</h2>
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
-              <p className="text-sm text-gray-600">Reward</p>
+              <p className="text-sm text-gray-400">Reward</p>
               <p className="font-bold text-[#35D07F]">{assignment.reward_amount} {assignment.reward_currency}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-600">Difficulty</p>
-              <p className="font-semibold">{assignment.difficulty_level}</p>
+              <p className="text-sm text-gray-400">Difficulty</p>
+              <p className="font-semibold text-gray-300">{assignment.difficulty_level}</p>
             </div>
           </div>
-          <p className="text-gray-700">{assignment.description}</p>
+          <p className="text-gray-300">{assignment.description}</p>
           {assignment.github_repo_url && (
             <div className="mt-4">
               <a
                 href={assignment.github_repo_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:underline"
+                className="text-[#3B82F6] hover:underline"
               >
                 📁 View Repository →
               </a>
@@ -232,12 +232,12 @@ export default function SubmitSolutionPage({ params }: { params: { id: string } 
         </div>
 
         {/* Submission Form */}
-        <form onSubmit={handleSubmit} className="bg-white border-2 border-black rounded-lg p-6">
-          <h2 className="text-xl font-bold text-black mb-6">Your Solution</h2>
+        <form onSubmit={handleSubmit} className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg p-6">
+          <h2 className="text-xl font-bold text-white mb-6">Your Solution</h2>
 
           {/* GitHub PR URL */}
           <div className="mb-6">
-            <label className="block text-sm font-bold text-black mb-2">
+            <label className="block text-sm font-bold text-gray-300 mb-2">
               GitHub Pull Request URL *
             </label>
             <input
@@ -245,47 +245,47 @@ export default function SubmitSolutionPage({ params }: { params: { id: string } 
               required
               value={formData.github_pr_url}
               onChange={(e) => setFormData({ ...formData, github_pr_url: e.target.value })}
-              className="w-full px-4 py-2 border-2 border-black rounded"
+              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded text-white placeholder-gray-400 focus:border-[#3B82F6] focus:outline-none"
               placeholder="https://github.com/owner/repo/pull/123"
             />
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-gray-400 mt-1">
               Link to your pull request with the solution
             </p>
           </div>
 
           {/* Commit Hash */}
           <div className="mb-6">
-            <label className="block text-sm font-bold text-black mb-2">
+            <label className="block text-sm font-bold text-gray-300 mb-2">
               Commit Hash (Optional)
             </label>
             <input
               type="text"
               value={formData.github_commit_hash}
               onChange={(e) => setFormData({ ...formData, github_commit_hash: e.target.value })}
-              className="w-full px-4 py-2 border-2 border-black rounded"
+              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded text-white placeholder-gray-400 focus:border-[#3B82F6] focus:outline-none"
               placeholder="abc123def456..."
             />
           </div>
 
           {/* Submission Notes */}
           <div className="mb-6">
-            <label className="block text-sm font-bold text-black mb-2">
+            <label className="block text-sm font-bold text-gray-300 mb-2">
               Submission Notes
             </label>
             <textarea
               value={formData.submission_notes}
               onChange={(e) => setFormData({ ...formData, submission_notes: e.target.value })}
-              className="w-full px-4 py-2 border-2 border-black rounded h-32"
+              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded h-32 text-white placeholder-gray-400 focus:border-[#3B82F6] focus:outline-none"
               placeholder="Describe your solution, challenges faced, testing done..."
             />
           </div>
 
           {/* Info Box */}
-          <div className="bg-blue-50 border-2 border-blue-600 rounded-lg p-4 mb-6">
-            <p className="text-sm text-blue-800 font-semibold mb-2">
+          <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4 mb-6">
+            <p className="text-sm text-blue-300 font-semibold mb-2">
               🔐 Blockchain Submission
             </p>
-            <p className="text-sm text-blue-700">
+            <p className="text-sm text-blue-200">
               Your submission will be recorded on Celo Sepolia blockchain. MetaMask will popup to confirm the transaction.
               {assignment.auto_verify && ' This assignment has auto-verification enabled - you may receive instant approval!'}
             </p>
@@ -296,7 +296,7 @@ export default function SubmitSolutionPage({ params }: { params: { id: string } 
             <button
               type="submit"
               disabled={loading}
-              className="px-6 py-3 bg-[#35D07F] text-white font-bold rounded border-2 border-black hover:bg-[#2ab56f] transition disabled:opacity-50"
+              className="px-6 py-3 bg-gradient-to-r from-[#35D07F] to-[#2ab56f] text-white font-bold rounded border border-[#35D07F] hover:shadow-lg hover:shadow-[#35D07F]/50 transition disabled:opacity-50"
             >
               {blockchainStep === 'uploading' && '📤 Uploading to IPFS...'}
               {blockchainStep === 'blockchain' && '🔐 Waiting for MetaMask...'}
@@ -307,7 +307,7 @@ export default function SubmitSolutionPage({ params }: { params: { id: string } 
             <button
               type="button"
               onClick={() => router.back()}
-              className="px-6 py-3 bg-white text-black font-bold rounded border-2 border-black hover:bg-gray-100 transition"
+              className="px-6 py-3 bg-white/10 text-gray-300 font-bold rounded border border-white/20 hover:bg-white/20 transition"
             >
               Cancel
             </button>

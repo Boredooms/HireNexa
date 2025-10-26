@@ -24,4 +24,405 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  
+  /* Hide scrollbar but keep scroll functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Opera */
+  }
+}
+
+/* TalkJS Dark Theme Customization */
+iframe[src*="talkjs"] {
+  border-radius: 0.5rem;
+}
+
+/* Global TalkJS styling - applies to all TalkJS iframes */
+.talkjs-container {
+  background-color: #0f0f1e !important;
+  border-radius: 0.5rem;
+}
+
+/* Override TalkJS default styles */
+[class*="talkjs"] {
+  font-family: inherit !important;
+}
+
+/* Clerk Form Dark Theme Customization - Force Dark Mode */
+.cl-rootBox {
+  background-color: transparent !important;
+}
+
+.cl-card {
+  background: rgba(15, 15, 30, 0.9) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(59, 130, 246, 0.2) !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Force all backgrounds to dark */
+.cl-card,
+.cl-main,
+.cl-signUp-root,
+.cl-signIn-root,
+[class*="cl-"] {
+  background-color: transparent !important;
+}
+
+/* Override any white backgrounds */
+.cl-card > div,
+.cl-card section,
+.cl-card form {
+  background-color: transparent !important;
+}
+
+.cl-formFieldInput {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  border-radius: 0.5rem !important;
+  padding: 0.75rem !important;
+}
+
+.cl-formFieldInput:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+.cl-formFieldInput::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.cl-formFieldLabel {
+  color: #d1d5db !important;
+}
+
+.cl-formButtonPrimary {
+  background: linear-gradient(to right, #3b82f6, #2563eb) !important;
+  color: #ffffff !important;
+  border-radius: 0.5rem !important;
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
+}
+
+.cl-formButtonPrimary:hover {
+  background: linear-gradient(to right, #2563eb, #1d4ed8) !important;
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4) !important;
+}
+
+.cl-headerTitle {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+.cl-headerSubtitle {
+  color: #9ca3af !important;
+}
+
+.cl-socialButtonsBlockButton {
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  color: #ffffff !important;
+  border-radius: 0.5rem !important;
+}
+
+.cl-socialButtonsBlockButton:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+.cl-dividerLine {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.cl-dividerText {
+  color: #9ca3af !important;
+}
+
+.cl-footerActionLink {
+  color: #3b82f6 !important;
+}
+
+.cl-footerActionLink:hover {
+  color: #60a5fa !important;
+}
+
+/* Text and button visibility */
+.cl-formFieldInput,
+.cl-formFieldLabel,
+.cl-headerTitle,
+.cl-headerSubtitle,
+.cl-socialButtonsBlockButton,
+.cl-dividerText {
+  font-weight: 500 !important;
+}
+
+/* Additional Clerk styling for better readability */
+.cl-signUpBox {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.cl-form {
+  background-color: transparent !important;
+}
+
+.cl-formField {
+  background-color: transparent !important;
+}
+
+/* Button text styling */
+.cl-formButtonPrimary span {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+/* Social button text */
+.cl-socialButtonsBlockButton span {
+  color: #ffffff !important;
+}
+
+/* Link styling */
+.cl-link {
+  color: #3b82f6 !important;
+}
+
+.cl-link:hover {
+  color: #60a5fa !important;
+}
+
+/* Input focus state */
+.cl-formFieldInput:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Footer styling */
+.cl-footer {
+  background-color: rgba(15, 15, 30, 0.8) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 1rem !important;
+  border-radius: 0 0 0.75rem 0.75rem !important;
+}
+
+.cl-footerAction {
+  background-color: transparent !important;
+}
+
+.cl-footerActionText {
+  color: #9ca3af !important;
+}
+
+.cl-footerActionLink {
+  color: #3b82f6 !important;
+  font-weight: 600 !important;
+}
+
+.cl-footerActionLink:hover {
+  color: #60a5fa !important;
+}
+
+/* Footer pages - force dark background */
+.cl-footerPages {
+  background-color: rgba(15, 15, 30, 0.8) !important;
+}
+
+/* Clerk secured by text */
+.cl-footer p,
+.cl-footer span,
+.cl-footer div {
+  color: #9ca3af !important;
+}
+
+/* Social buttons icon styling - Enhanced */
+.cl-socialButtonsBlockButton__coinbase,
+.cl-socialButtonsBlockButton__github,
+.cl-socialButtonsBlockButton__google,
+.cl-socialButtonsBlockButton__apple {
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 0.5rem !important;
+  padding: 0.75rem !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.cl-socialButtonsBlockButton__coinbase:hover,
+.cl-socialButtonsBlockButton__github:hover,
+.cl-socialButtonsBlockButton__google:hover,
+.cl-socialButtonsBlockButton__apple:hover {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.1)) !important;
+  border-color: rgba(59, 130, 246, 0.5) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Fix dark icons (GitHub, Apple) visibility on dark background */
+.cl-socialButtonsBlockButton__github svg,
+.cl-socialButtonsBlockButton__github img,
+.cl-socialButtonsBlockButton__apple svg,
+.cl-socialButtonsBlockButton__apple img {
+  filter: invert(1) brightness(0.9) !important;
+}
+
+/* Ensure all social button icons are visible */
+.cl-socialButtonsBlockButton svg,
+.cl-socialButtonsBlockButton img {
+  opacity: 0.9 !important;
+}
+
+.cl-socialButtonsBlockButton:hover svg,
+.cl-socialButtonsBlockButton:hover img {
+  opacity: 1 !important;
+}
+
+/* Internal elements */
+.cl-internal-b3fm6y {
+  color: #ffffff !important;
+}
+
+/* Clerk branding */
+.cl-footerActionLink[href*="clerk"] {
+  color: #6b7280 !important;
+}
+
+.cl-badge {
+  background-color: transparent !important;
+  color: #6b7280 !important;
+}
+
+/* Comprehensive dark mode overrides */
+.cl-component,
+.cl-modalContent,
+.cl-cardBox,
+.cl-headerBox,
+.cl-socialButtons,
+.cl-divider,
+.cl-formContainer {
+  background-color: transparent !important;
+}
+
+/* All text elements */
+.cl-formFieldLabel,
+.cl-formFieldLabelRow,
+.cl-formFieldHintText,
+.cl-identityPreview,
+.cl-identityPreviewText,
+.cl-identityPreviewEditButton {
+  color: #d1d5db !important;
+}
+
+/* Header elements */
+.cl-header,
+.cl-headerTitle,
+.cl-headerSubtitle {
+  background-color: transparent !important;
+}
+
+/* Form elements */
+.cl-form,
+.cl-formField,
+.cl-formFieldRow {
+  background-color: transparent !important;
+}
+
+/* Override Clerk's default white/light backgrounds globally */
+[class*="cl-internal"] {
+  background-color: transparent !important;
+}
+
+/* Nuclear option - force ALL Clerk elements to dark */
+.cl-card *,
+.cl-rootBox *,
+.cl-component * {
+  background-color: transparent !important;
+}
+
+/* Exception: UserButton dropdown should have proper background */
+.cl-userButtonPopoverCard,
+.cl-userButtonPopoverCard *,
+.cl-menuList,
+.cl-menuList *,
+.cl-userButtonPopoverMain,
+.cl-userButtonPopoverFooter {
+  background-color: rgba(15, 15, 30, 0.95) !important;
+}
+
+.cl-userButtonPopoverCard {
+  border: 1px solid rgba(59, 130, 246, 0.3) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* UserButton menu items */
+.cl-menuItem {
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
+.cl-menuItem:hover {
+  background-color: rgba(59, 130, 246, 0.2) !important;
+}
+
+/* Force all text in UserButton menu to be white */
+.cl-userButtonPopoverCard *,
+.cl-menuList *,
+.cl-menuItem *,
+.cl-userButtonPopoverMain *,
+.cl-userButtonPopoverFooter *,
+.cl-userPreview *,
+.cl-userPreviewMainIdentifier,
+.cl-userPreviewSecondaryIdentifier,
+.cl-menuButton,
+.cl-menuButton * {
+  color: #ffffff !important;
+}
+
+/* User info section */
+.cl-userPreview {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Menu action buttons */
+.cl-menuButton {
+  color: #ffffff !important;
+}
+
+.cl-menuButton:hover {
+  background-color: rgba(59, 130, 246, 0.2) !important;
+}
+
+/* Specifically target footer area - AGGRESSIVE */
+.cl-footer,
+.cl-footerPages,
+.cl-footer *,
+.cl-footerPages *,
+.cl-footerAction,
+.cl-footerAction *,
+div[class*="footer"],
+div[class*="Footer"] {
+  background-color: rgba(15, 15, 30, 0.95) !important;
+  background: rgba(15, 15, 30, 0.95) !important;
+}
+
+/* Make sure footer text is visible */
+.cl-footer *:not(a),
+.cl-footerPages *:not(a),
+.cl-footerAction *:not(a) {
+  color: #9ca3af !important;
+}
+
+/* Force remove any white/light backgrounds in footer */
+.cl-footer div,
+.cl-footer section,
+.cl-footer article,
+.cl-footerPages div,
+.cl-footerPages section {
+  background-color: transparent !important;
+  background: transparent !important;
 }

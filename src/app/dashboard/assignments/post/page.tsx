@@ -173,40 +173,40 @@ export default function PostAssignmentPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FFFEF7]">
-      <header className="bg-white shadow border-b-2 border-black">
+    <div className="min-h-screen bg-gradient-to-br from-black via-[#0f0f1e] to-black">
+      <header className="bg-white/5 backdrop-blur-sm border-b border-white/10">
         <div className="max-w-4xl mx-auto px-4 py-4">
-          <h1 className="text-2xl font-bold text-black">📋 Post a New Assignment</h1>
-          <p className="text-gray-600">Create a micro-task for students to complete</p>
+          <h1 className="text-2xl font-bold text-white">📋 Post a New Assignment</h1>
+          <p className="text-gray-400">Create a micro-task for students to complete</p>
         </div>
       </header>
 
       <main className="max-w-4xl mx-auto px-4 py-8">
-        <form onSubmit={handleSubmit} className="bg-white border-2 border-black rounded-lg p-8">
+        <form onSubmit={handleSubmit} className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg p-8">
           {/* Assignment Title */}
           <div className="mb-6">
-            <label className="block text-sm font-bold text-black mb-2">Assignment Title *</label>
+            <label className="block text-sm font-bold text-gray-300 mb-2">Assignment Title *</label>
             <input
               type="text"
               required
               minLength={5}
               value={formData.title}
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-              className="w-full px-4 py-2 border-2 border-black rounded"
+              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded text-white placeholder-gray-500 focus:outline-none focus:border-[#3B82F6]"
               placeholder="e.g. Fix authentication bug in login component"
             />
-            <p className="text-xs text-gray-500 mt-1">Minimum 5 characters</p>
+            <p className="text-xs text-gray-400 mt-1">Minimum 5 characters</p>
           </div>
 
           {/* Company Name */}
           <div className="mb-6">
-            <label className="block text-sm font-bold text-black mb-2">Company Name *</label>
+            <label className="block text-sm font-bold text-gray-300 mb-2">Company Name *</label>
             <input
               type="text"
               required
               value={formData.company_name}
               onChange={(e) => setFormData({ ...formData, company_name: e.target.value })}
-              className="w-full px-4 py-2 border-2 border-black rounded"
+              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded text-white placeholder-gray-500 focus:outline-none focus:border-[#3B82F6]"
               placeholder="Your Company"
             />
           </div>
@@ -214,11 +214,11 @@ export default function PostAssignmentPage() {
           {/* Assignment Type & Difficulty */}
           <div className="grid grid-cols-2 gap-4 mb-6">
             <div>
-              <label className="block text-sm font-bold text-black mb-2">Assignment Type *</label>
+              <label className="block text-sm font-bold text-gray-300 mb-2">Assignment Type *</label>
               <select
                 value={formData.assignment_type}
                 onChange={(e) => setFormData({ ...formData, assignment_type: e.target.value })}
-                className="w-full px-4 py-2 border-2 border-black rounded"
+                className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded text-white focus:outline-none focus:border-[#3B82F6]"
                 aria-label="Assignment Type"
               >
                 <option value="bug_fix">🐛 Bug Fix</option>
@@ -229,11 +229,11 @@ export default function PostAssignmentPage() {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-bold text-black mb-2">Difficulty Level *</label>
+              <label className="block text-sm font-bold text-gray-300 mb-2">Difficulty Level *</label>
               <select
                 value={formData.difficulty_level}
                 onChange={(e) => setFormData({ ...formData, difficulty_level: e.target.value })}
-                className="w-full px-4 py-2 border-2 border-black rounded"
+                className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded text-white focus:outline-none focus:border-[#3B82F6]"
                 aria-label="Difficulty Level"
               >
                 <option value="beginner">🟢 Beginner</option>
@@ -246,35 +246,35 @@ export default function PostAssignmentPage() {
 
           {/* Description */}
           <div className="mb-6">
-            <label className="block text-sm font-bold text-black mb-2">Assignment Description *</label>
+            <label className="block text-sm font-bold text-gray-300 mb-2">Assignment Description *</label>
             <textarea
               required
               minLength={20}
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              className="w-full px-4 py-2 border-2 border-black rounded h-32"
+              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded h-32 text-white placeholder-gray-500 focus:outline-none focus:border-[#3B82F6]"
               placeholder="Describe the task, what needs to be done, acceptance criteria..."
             />
-            <p className="text-xs text-gray-500 mt-1">Minimum 20 characters</p>
+            <p className="text-xs text-gray-400 mt-1">Minimum 20 characters</p>
           </div>
 
           {/* GitHub URLs */}
           <div className="mb-6">
-            <label className="block text-sm font-bold text-black mb-2">GitHub Repository URL</label>
+            <label className="block text-sm font-bold text-gray-300 mb-2">GitHub Repository URL</label>
             <input
               type="url"
               value={formData.github_repo_url}
               onChange={(e) => setFormData({ ...formData, github_repo_url: e.target.value })}
-              className="w-full px-4 py-2 border-2 border-black rounded mb-3"
+              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded mb-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#3B82F6]"
               placeholder="https://github.com/username/repo"
             />
             
-            <label className="block text-sm font-bold text-black mb-2">GitHub Issue URL (Optional)</label>
+            <label className="block text-sm font-bold text-gray-300 mb-2">GitHub Issue URL (Optional)</label>
             <input
               type="url"
               value={formData.github_issue_url}
               onChange={(e) => setFormData({ ...formData, github_issue_url: e.target.value })}
-              className="w-full px-4 py-2 border-2 border-black rounded"
+              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded text-white placeholder-gray-500 focus:outline-none focus:border-[#3B82F6]"
               placeholder="https://github.com/username/repo/issues/123"
             />
           </div>
@@ -282,19 +282,19 @@ export default function PostAssignmentPage() {
           {/* Estimated Hours & Reward */}
           <div className="grid grid-cols-2 gap-4 mb-6">
             <div>
-              <label className="block text-sm font-bold text-black mb-2">Estimated Hours *</label>
+              <label className="block text-sm font-bold text-gray-300 mb-2">Estimated Hours *</label>
               <input
                 type="number"
                 required
                 min="1"
                 value={formData.estimated_hours}
                 onChange={(e) => setFormData({ ...formData, estimated_hours: e.target.value })}
-                className="w-full px-4 py-2 border-2 border-black rounded"
+                className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded text-white placeholder-gray-500 focus:outline-none focus:border-[#3B82F6]"
                 placeholder="8"
               />
             </div>
             <div>
-              <label className="block text-sm font-bold text-black mb-2">Reward (CELO) *</label>
+              <label className="block text-sm font-bold text-gray-300 mb-2">Reward (CELO) *</label>
               <input
                 type="number"
                 required
@@ -302,7 +302,7 @@ export default function PostAssignmentPage() {
                 step="0.01"
                 value={formData.reward_amount}
                 onChange={(e) => setFormData({ ...formData, reward_amount: e.target.value })}
-                className="w-full px-4 py-2 border-2 border-black rounded"
+                className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded text-white placeholder-gray-500 focus:outline-none focus:border-[#3B82F6]"
                 placeholder="10.00"
               />
             </div>
@@ -310,7 +310,7 @@ export default function PostAssignmentPage() {
 
           {/* Required Skills */}
           <div className="mb-6">
-            <label className="block text-sm font-bold text-black mb-2">
+            <label className="block text-sm font-bold text-gray-300 mb-2">
               Required Skills * (comma-separated)
             </label>
             <input
@@ -318,24 +318,24 @@ export default function PostAssignmentPage() {
               required
               value={formData.required_skills}
               onChange={(e) => setFormData({ ...formData, required_skills: e.target.value })}
-              className="w-full px-4 py-2 border-2 border-black rounded"
+              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded text-white placeholder-gray-500 focus:outline-none focus:border-[#3B82F6]"
               placeholder="React, TypeScript, Testing, Git"
             />
           </div>
 
           {/* Max Submissions */}
           <div className="mb-6">
-            <label className="block text-sm font-bold text-black mb-2">Maximum Submissions</label>
+            <label className="block text-sm font-bold text-gray-300 mb-2">Maximum Submissions</label>
             <input
               type="number"
               min="1"
               max="10"
               value={formData.max_submissions}
               onChange={(e) => setFormData({ ...formData, max_submissions: e.target.value })}
-              className="w-full px-4 py-2 border-2 border-black rounded"
+              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded text-white placeholder-gray-500 focus:outline-none focus:border-[#3B82F6]"
               placeholder="3"
             />
-            <p className="text-xs text-gray-500 mt-1">How many students can submit solutions (1-10)</p>
+            <p className="text-xs text-gray-400 mt-1">How many students can submit solutions (1-10)</p>
           </div>
 
           {/* Auto-Verify */}
@@ -345,13 +345,13 @@ export default function PostAssignmentPage() {
                 type="checkbox"
                 checked={formData.auto_verify}
                 onChange={(e) => setFormData({ ...formData, auto_verify: e.target.checked })}
-                className="w-5 h-5 border-2 border-black rounded"
+                className="w-5 h-5 border-2 border-white/20 rounded bg-white/10"
               />
-              <span className="text-sm font-bold text-black">
+              <span className="text-sm font-bold text-gray-300">
                 ⚡ Enable Auto-Verification
               </span>
             </label>
-            <p className="text-xs text-gray-500 mt-1 ml-7">
+            <p className="text-xs text-gray-400 mt-1 ml-7">
               Automatically approve submissions that pass all GitHub checks and AI verification (score ≥ 90%)
             </p>
           </div>
@@ -361,7 +361,7 @@ export default function PostAssignmentPage() {
             <button
               type="submit"
               disabled={loading}
-              className="px-6 py-3 bg-[#FCFF52] text-black font-bold rounded border-2 border-black hover:bg-yellow-300 transition disabled:opacity-50"
+              className="px-6 py-3 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold rounded hover:shadow-lg hover:shadow-[#3B82F6]/50 transition disabled:opacity-50"
             >
               {blockchainStep === 'uploading' && '📤 Uploading to IPFS...'}
               {blockchainStep === 'blockchain' && '🔐 Waiting for MetaMask...'}
@@ -372,7 +372,7 @@ export default function PostAssignmentPage() {
             <button
               type="button"
               onClick={() => router.back()}
-              className="px-6 py-3 bg-white text-black font-bold rounded border-2 border-black hover:bg-gray-100 transition"
+              className="px-6 py-3 bg-white/10 border border-white/20 text-gray-300 font-bold rounded hover:bg-white/20 transition"
             >
               Cancel
             </button>

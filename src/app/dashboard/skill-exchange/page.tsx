@@ -294,7 +294,7 @@ export default function SkillExchangePage() {
                         >
                           🤝 Propose Barter
                         </button>
-                        <div className="bg-amber-500/10 border border-amber-500/30 rounded p-2 text-xs font-bold text-center text-amber-300">
+                        <div className="bg-amber-500/10 border border-amber-500/50 rounded p-2 text-xs font-bold text-center text-amber-300">
                           🔒 Lock funds to enable chat
                         </div>
                       </>
@@ -314,20 +314,20 @@ export default function SkillExchangePage() {
                     {/* Show accepted/active status with enabled buttons */}
                     {(match.barter_status === 'accepted' || match.barter_status === 'active') && (
                       <>
-                        <div className="bg-green-100 border-2 border-black rounded p-2 text-center">
-                          <div className="font-bold text-green-800">✅ Barter Active</div>
-                          <div className="text-xs text-green-600">Video & Chat enabled!</div>
+                        <div className="bg-green-500/20 border border-green-500/50 rounded p-2 text-center">
+                          <div className="font-bold text-green-300">✅ Barter Active</div>
+                          <div className="text-xs text-green-400">Video & Chat enabled!</div>
                         </div>
                         <div className="flex gap-2">
                           <button
                             onClick={() => router.push(`/dashboard/skill-exchange/video/${match.id}`)}
-                            className="flex-1 px-4 py-2 bg-[#FF6B9D] border-2 border-black rounded font-bold hover:bg-[#ff5a8c] transition flex items-center justify-center gap-2"
+                            className="flex-1 px-4 py-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] rounded font-bold text-white hover:shadow-lg hover:shadow-[#3B82F6]/50 transition flex items-center justify-center gap-2"
                           >
                             📹 Video
                           </button>
                           <button
                             onClick={() => router.push(`/dashboard/skill-exchange/chat/${match.id}`)}
-                            className="flex-1 px-4 py-2 bg-[#FCFF52] border-2 border-black rounded font-bold hover:bg-[#f0f542] transition flex items-center justify-center gap-2"
+                            className="flex-1 px-4 py-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] rounded font-bold text-white hover:shadow-lg hover:shadow-[#3B82F6]/50 transition flex items-center justify-center gap-2"
                           >
                             💬 Chat
                           </button>
@@ -340,14 +340,14 @@ export default function SkillExchangePage() {
                       <div className="flex gap-2 opacity-50">
                         <button
                           disabled
-                          className="flex-1 px-4 py-2 bg-gray-300 border-2 border-black rounded font-bold cursor-not-allowed flex items-center justify-center gap-2"
+                          className="flex-1 px-4 py-2 bg-gray-500/20 border border-gray-500/50 rounded font-bold text-gray-500 cursor-not-allowed flex items-center justify-center gap-2"
                           title="Propose escrow barter first"
                         >
                           📹 Video
                         </button>
                         <button
                           disabled
-                          className="flex-1 px-4 py-2 bg-gray-300 border-2 border-black rounded font-bold cursor-not-allowed flex items-center justify-center gap-2"
+                          className="flex-1 px-4 py-2 bg-gray-500/20 border border-gray-500/50 rounded font-bold text-gray-500 cursor-not-allowed flex items-center justify-center gap-2"
                           title="Propose escrow barter first"
                         >
                           💬 Chat

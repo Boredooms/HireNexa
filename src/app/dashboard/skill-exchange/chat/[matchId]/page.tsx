@@ -86,7 +86,7 @@ export default function ChatPage() {
       
       console.log('💬 Chat conversation created:', conversationId)
 
-      // Create chatbox
+      // Create chatbox - TalkJS will use default theme
       const chatbox = session.createChatbox()
       chatbox.select(conversation)
       chatbox.mount(chatboxContainer)
@@ -111,22 +111,22 @@ export default function ChatPage() {
 
   if (loading && !matchInfo) {
     return (
-      <div className="min-h-screen bg-[#FFFEF7] flex items-center justify-center">
-        <div className="text-2xl font-bold">Loading chat...</div>
+      <div className="min-h-screen bg-gradient-to-br from-black via-[#0f0f1e] to-black flex items-center justify-center">
+        <div className="text-2xl font-bold text-white">Loading chat...</div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-[#FFFEF7] flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-black via-[#0f0f1e] to-black flex flex-col">
       {/* Header */}
-      <header className="bg-white border-b-2 border-black shadow-lg">
+      <header className="bg-white/5 backdrop-blur-sm border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <button
                 onClick={() => router.back()}
-                className="px-4 py-2 border-2 border-black rounded font-bold hover:bg-gray-100 transition"
+                className="px-4 py-2 border border-white/20 bg-white/10 rounded font-bold text-gray-300 hover:bg-white/20 transition"
               >
                 ← Back
               </button>
@@ -135,11 +135,11 @@ export default function ChatPage() {
                   <img
                     src={matchInfo.avatar_url || 'https://api.dicebear.com/7.x/avataaars/svg?seed=default'}
                     alt={matchInfo.name}
-                    className="w-12 h-12 rounded-full border-2 border-black"
+                    className="w-12 h-12 rounded-full border-2 border-white/20"
                   />
                   <div>
-                    <h1 className="text-xl font-bold">{matchInfo.name}</h1>
-                    <p className="text-sm text-gray-600">
+                    <h1 className="text-xl font-bold text-white">{matchInfo.name}</h1>
+                    <p className="text-sm text-gray-400">
                       {isOnline(matchInfo.user_id) ? (
                         <span className="flex items-center gap-1">
                           <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
@@ -158,7 +158,7 @@ export default function ChatPage() {
             </div>
             <button
               onClick={() => router.push(`/dashboard/skill-exchange/video/${matchId}`)}
-              className="px-6 py-2 bg-[#FCFF52] border-2 border-black rounded font-bold hover:bg-yellow-300 transition"
+              className="px-6 py-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] rounded font-bold text-white hover:shadow-lg hover:shadow-[#3B82F6]/50 transition"
             >
               📹 Start Video Call
             </button>
@@ -168,15 +168,15 @@ export default function ChatPage() {
 
       {/* Chat Container */}
       <div className="flex-1 max-w-7xl w-full mx-auto p-4">
-        <div className="bg-white border-4 border-black rounded-lg shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] h-[calc(100vh-200px)]">
+        <div className="bg-white/5 backdrop-blur-md border border-white/20 rounded-lg h-[calc(100vh-200px)] shadow-2xl overflow-hidden">
           <div 
             ref={setChatboxContainer} 
-            className="w-full h-full"
+            className="w-full h-full rounded-lg overflow-hidden"
             style={{ minHeight: '500px' }}
           />
           {loading && (
             <div className="flex items-center justify-center h-full">
-              <div className="text-xl font-bold">Loading chat...</div>
+              <div className="text-xl font-bold text-white">Loading chat...</div>
             </div>
           )}
         </div>

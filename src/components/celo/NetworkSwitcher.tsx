@@ -79,25 +79,25 @@ export default function NetworkSwitcher() {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow p-4">
-      <h4 className="font-semibold text-gray-900 mb-3">Switch Celo Network</h4>
+    <div className="bg-white/5 backdrop-blur-sm rounded-lg shadow p-4 border border-white/20">
+      <h4 className="font-semibold text-white mb-3">Switch Celo Network</h4>
       <div className="grid grid-cols-2 gap-3">
         <button
           onClick={() => switchNetwork('sepolia')}
           disabled={switching}
-          className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 transition"
+          className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 transition shadow-lg"
         >
           Sepolia Testnet ⭐
         </button>
         <button
           onClick={() => switchNetwork('mainnet')}
           disabled={switching}
-          className="px-4 py-2 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 disabled:opacity-50 transition"
+          className="px-4 py-2 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 disabled:opacity-50 transition shadow-lg"
         >
           Celo Mainnet
         </button>
       </div>
-      <p className="text-xs text-gray-500 mt-2">
+      <p className="text-xs text-gray-400 mt-2">
         💡 Use Sepolia for testing (better faucets!)
       </p>
     </div>

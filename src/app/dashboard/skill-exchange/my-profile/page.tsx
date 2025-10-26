@@ -145,25 +145,25 @@ export default function MyProfilePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#FFFEF7] flex items-center justify-center">
-        <div className="text-2xl font-bold">Loading profile...</div>
+      <div className="min-h-screen bg-gradient-to-br from-black via-[#0f0f1e] to-black flex items-center justify-center">
+        <div className="text-2xl font-bold text-white">Loading profile...</div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-[#FFFEF7]">
+    <div className="min-h-screen bg-gradient-to-br from-black via-[#0f0f1e] to-black">
       {/* Header */}
-      <header className="bg-white border-b-2 border-black shadow-lg sticky top-0 z-40">
+      <header className="bg-white/5 backdrop-blur-sm border-b border-white/10 sticky top-0 z-40">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold text-black">✏️ My Skill Exchange Profile</h1>
-              <p className="text-gray-600">Update your skills and preferences</p>
+              <h1 className="text-3xl font-bold text-white">✏️ My Skill Exchange Profile</h1>
+              <p className="text-gray-400">Update your skills and preferences</p>
             </div>
             <button
               onClick={() => router.push('/dashboard/skill-exchange')}
-              className="px-4 py-2 border-2 border-black rounded font-bold hover:bg-gray-100 transition"
+              className="px-4 py-2 border border-white/20 bg-white/10 rounded font-bold text-gray-300 hover:bg-white/20 transition"
             >
               ← Back
             </button>
@@ -172,26 +172,26 @@ export default function MyProfilePage() {
       </header>
 
       <main className="max-w-4xl mx-auto px-4 py-8">
-        <div className="bg-white border-4 border-black rounded-lg p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <div className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg p-8">
           {/* Name */}
           <div className="mb-6">
-            <label className="block text-lg font-bold mb-2">Name</label>
+            <label className="block text-lg font-bold mb-2 text-gray-300">Name</label>
             <input
               type="text"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-4 py-3 border-2 border-black rounded-lg font-semibold"
+              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg font-semibold text-white placeholder-gray-500 focus:outline-none focus:border-[#3B82F6]"
               placeholder="Your name"
             />
           </div>
 
           {/* Bio */}
           <div className="mb-6">
-            <label className="block text-lg font-bold mb-2">Bio</label>
+            <label className="block text-lg font-bold mb-2 text-gray-300">Bio</label>
             <textarea
               value={formData.bio}
               onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
-              className="w-full px-4 py-3 border-2 border-black rounded-lg font-semibold"
+              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg font-semibold text-white placeholder-gray-500 focus:outline-none focus:border-[#3B82F6]"
               rows={4}
               placeholder="Tell others about yourself..."
             />
@@ -199,19 +199,19 @@ export default function MyProfilePage() {
 
           {/* Skills Offered */}
           <div className="mb-6">
-            <label className="block text-lg font-bold mb-2">Skills I Can Teach</label>
+            <label className="block text-lg font-bold mb-2 text-gray-300">Skills I Can Teach</label>
             <div className="flex gap-2 mb-3">
               <input
                 type="text"
                 value={newSkillOffered}
                 onChange={(e) => setNewSkillOffered(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && addSkillOffered()}
-                className="flex-1 px-4 py-2 border-2 border-black rounded-lg font-semibold"
+                className="flex-1 px-4 py-2 bg-white/10 border border-white/20 rounded-lg font-semibold text-white placeholder-gray-500 focus:outline-none focus:border-[#3B82F6]"
                 placeholder="Add a skill..."
               />
               <button
                 onClick={addSkillOffered}
-                className="px-6 py-2 bg-[#35D07F] border-2 border-black rounded-lg font-bold text-white hover:bg-[#2ab56f] transition"
+                className="px-6 py-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] rounded-lg font-bold text-white hover:shadow-lg hover:shadow-[#3B82F6]/50 transition"
               >
                 Add
               </button>
@@ -220,12 +220,12 @@ export default function MyProfilePage() {
               {formData.skills_offered.map((skill, index) => (
                 <div
                   key={index}
-                  className="px-4 py-2 bg-[#35D07F] border-2 border-black rounded-lg font-bold text-white flex items-center gap-2"
+                  className="px-4 py-2 bg-[#3B82F6]/20 border border-[#3B82F6]/50 rounded-lg font-bold text-[#3B82F6] flex items-center gap-2"
                 >
                   {skill}
                   <button
                     onClick={() => removeSkillOffered(index)}
-                    className="text-white hover:text-red-200"
+                    className="text-[#3B82F6] hover:text-red-400"
                   >
                     ✕
                   </button>
@@ -236,19 +236,19 @@ export default function MyProfilePage() {
 
           {/* Skills Wanted */}
           <div className="mb-6">
-            <label className="block text-lg font-bold mb-2">Skills I Want to Learn</label>
+            <label className="block text-lg font-bold mb-2 text-gray-300">Skills I Want to Learn</label>
             <div className="flex gap-2 mb-3">
               <input
                 type="text"
                 value={newSkillWanted}
                 onChange={(e) => setNewSkillWanted(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && addSkillWanted()}
-                className="flex-1 px-4 py-2 border-2 border-black rounded-lg font-semibold"
+                className="flex-1 px-4 py-2 bg-white/10 border border-white/20 rounded-lg font-semibold text-white placeholder-gray-500 focus:outline-none focus:border-[#3B82F6]"
                 placeholder="Add a skill..."
               />
               <button
                 onClick={addSkillWanted}
-                className="px-6 py-2 bg-purple-500 border-2 border-black rounded-lg font-bold text-white hover:bg-purple-600 transition"
+                className="px-6 py-2 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg font-bold text-white hover:shadow-lg hover:shadow-purple-500/50 transition"
               >
                 Add
               </button>
@@ -257,12 +257,12 @@ export default function MyProfilePage() {
               {formData.skills_wanted.map((skill, index) => (
                 <div
                   key={index}
-                  className="px-4 py-2 bg-purple-500 border-2 border-black rounded-lg font-bold text-white flex items-center gap-2"
+                  className="px-4 py-2 bg-purple-500/20 border border-purple-500/50 rounded-lg font-bold text-purple-300 flex items-center gap-2"
                 >
                   {skill}
                   <button
                     onClick={() => removeSkillWanted(index)}
-                    className="text-white hover:text-red-200"
+                    className="text-purple-300 hover:text-red-400"
                   >
                     ✕
                   </button>
@@ -273,19 +273,19 @@ export default function MyProfilePage() {
 
           {/* Interests */}
           <div className="mb-6">
-            <label className="block text-lg font-bold mb-2">Interests</label>
+            <label className="block text-lg font-bold mb-2 text-gray-300">Interests</label>
             <div className="flex gap-2 mb-3">
               <input
                 type="text"
                 value={newInterest}
                 onChange={(e) => setNewInterest(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && addInterest()}
-                className="flex-1 px-4 py-2 border-2 border-black rounded-lg font-semibold"
+                className="flex-1 px-4 py-2 bg-white/10 border border-white/20 rounded-lg font-semibold text-white placeholder-gray-500 focus:outline-none focus:border-[#3B82F6]"
                 placeholder="Add an interest..."
               />
               <button
                 onClick={addInterest}
-                className="px-6 py-2 bg-[#FCFF52] border-2 border-black rounded-lg font-bold hover:bg-yellow-300 transition"
+                className="px-6 py-2 bg-amber-500/80 border border-amber-500 rounded-lg font-bold text-white hover:bg-amber-500 transition"
               >
                 Add
               </button>
@@ -294,12 +294,12 @@ export default function MyProfilePage() {
               {formData.interests.map((interest, index) => (
                 <div
                   key={index}
-                  className="px-4 py-2 bg-[#FCFF52] border-2 border-black rounded-lg font-bold flex items-center gap-2"
+                  className="px-4 py-2 bg-amber-500/20 border border-amber-500/50 rounded-lg font-bold text-amber-300 flex items-center gap-2"
                 >
                   {interest}
                   <button
                     onClick={() => removeInterest(index)}
-                    className="hover:text-red-600"
+                    className="text-amber-300 hover:text-red-400"
                   >
                     ✕
                   </button>
@@ -310,11 +310,11 @@ export default function MyProfilePage() {
 
           {/* Experience Level */}
           <div className="mb-6">
-            <label className="block text-lg font-bold mb-2">Experience Level</label>
+            <label className="block text-lg font-bold mb-2 text-gray-300">Experience Level</label>
             <select
               value={formData.experience_level}
               onChange={(e) => setFormData({ ...formData, experience_level: e.target.value })}
-              className="w-full px-4 py-3 border-2 border-black rounded-lg font-semibold"
+              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg font-semibold text-white focus:outline-none focus:border-[#3B82F6]"
               aria-label="Experience Level"
             >
               <option value="beginner">Beginner</option>
@@ -326,12 +326,12 @@ export default function MyProfilePage() {
 
           {/* Availability */}
           <div className="mb-6">
-            <label className="block text-lg font-bold mb-2">Availability</label>
+            <label className="block text-lg font-bold mb-2 text-gray-300">Availability</label>
             <input
               type="text"
               value={formData.availability}
               onChange={(e) => setFormData({ ...formData, availability: e.target.value })}
-              className="w-full px-4 py-3 border-2 border-black rounded-lg font-semibold"
+              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg font-semibold text-white placeholder-gray-500 focus:outline-none focus:border-[#3B82F6]"
               placeholder="e.g., Weekends, Evenings, Flexible"
             />
           </div>
@@ -341,7 +341,7 @@ export default function MyProfilePage() {
             <button
               onClick={handleSave}
               disabled={saving}
-              className="flex-1 px-8 py-4 bg-[#35D07F] border-4 border-black rounded-lg font-black text-2xl text-white hover:bg-[#2ab56f] transition disabled:opacity-50 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              className="flex-1 px-8 py-4 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] rounded-lg font-black text-2xl text-white hover:shadow-lg hover:shadow-[#3B82F6]/50 transition disabled:opacity-50"
             >
               {saving ? 'Saving...' : 'Save Profile'}
             </button>

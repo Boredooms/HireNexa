@@ -122,7 +122,7 @@ function StudentDashboard({ userId, skillsCount, nftCount, portfolioViews }: any
   return (
     <div className="w-full min-h-screen bg-gradient-to-br from-black via-[#0f0f1e] to-black">
       {/* Left Sidebar - 9 Actions */}
-      <aside className="fixed left-0 top-0 w-64 bg-black/40 backdrop-blur-md border-r border-white/10 p-6 h-screen overflow-y-auto z-40">
+      <aside className="fixed left-0 top-0 w-64 bg-black/40 backdrop-blur-md border-r border-white/10 p-6 h-screen overflow-y-auto z-40 scrollbar-hide">
         {/* Switch Role */}
         <Link href="/switch-role" className="block mb-4 p-3 text-center bg-gradient-to-r from-[#3B82F6]/20 to-[#60A5FA]/20 border border-[#3B82F6]/50 rounded-lg hover:bg-[#3B82F6]/30 transition">
           <span className="text-sm font-semibold text-[#3B82F6]">🔄 Switch Dashboard</span>
@@ -239,7 +239,7 @@ function StudentDashboard({ userId, skillsCount, nftCount, portfolioViews }: any
       </aside>
 
       {/* Main Content */}
-      <main className="ml-64 min-h-screen w-full p-8 bg-gradient-to-br from-black via-[#0f0f1e] to-black">
+      <main className="ml-64 min-h-screen max-w-[calc(100vw-16rem)] p-8 bg-gradient-to-br from-black via-[#0f0f1e] to-black">
         {/* Welcome Section */}
         <div className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-6 mb-8 hover:bg-white/10 transition-all">
           <h2 className="text-3xl font-bold text-white mb-2">

@@ -76,45 +76,45 @@ export default function NetworkChecker() {
 
   if (error) {
     return (
-      <div className="bg-red-100 border-2 border-red-500 rounded-lg p-4 mb-4">
-        <p className="text-red-700 font-bold">❌ Network Error</p>
-        <p className="text-red-600 text-sm">{error}</p>
+      <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-4 mb-4 backdrop-blur-sm">
+        <p className="text-red-400 font-bold">❌ Network Error</p>
+        <p className="text-red-300 text-sm">{error}</p>
       </div>
     )
   }
 
   if (!network) {
     return (
-      <div className="bg-gray-100 border-2 border-gray-300 rounded-lg p-4 mb-4">
-        <p className="text-gray-700">Checking network...</p>
+      <div className="bg-white/5 border border-white/20 rounded-lg p-4 mb-4 backdrop-blur-sm">
+        <p className="text-gray-300">Checking network...</p>
       </div>
     )
   }
 
   return (
-    <div className={`border-2 rounded-lg p-4 mb-4 ${
+    <div className={`rounded-lg p-4 mb-4 backdrop-blur-sm border ${
       network.correct 
-        ? 'bg-green-100 border-green-500' 
-        : 'bg-red-100 border-red-500'
+        ? 'bg-gradient-to-r from-[#35D07F]/20 to-[#2ab56f]/10 border-[#35D07F]/30' 
+        : 'bg-red-500/10 border-red-500/30'
     }`}>
       <div className="flex items-center justify-between">
         <div>
-          <p className={`font-bold ${network.correct ? 'text-green-700' : 'text-red-700'}`}>
+          <p className={`font-bold ${network.correct ? 'text-[#35D07F]' : 'text-red-400'}`}>
             {network.correct ? '✅' : '❌'} Network: {network.name}
           </p>
-          <p className="text-sm text-gray-600">Chain ID: {network.chainId}</p>
+          <p className="text-sm text-gray-400">Chain ID: {network.chainId}</p>
         </div>
         {!network.correct && (
           <button
             onClick={switchNetwork}
-            className="px-4 py-2 bg-blue-500 text-white font-bold rounded border-2 border-black hover:bg-blue-600"
+            className="px-4 py-2 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold rounded border border-[#3B82F6] hover:shadow-lg hover:shadow-[#3B82F6]/50 transition"
           >
             Switch to Celo Sepolia
           </button>
         )}
       </div>
       {!network.correct && (
-        <p className="text-red-600 text-sm mt-2">
+        <p className="text-red-300 text-sm mt-2">
           ⚠️ You must be on Celo Sepolia to submit solutions!
         </p>
       )}
