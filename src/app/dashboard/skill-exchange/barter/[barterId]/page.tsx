@@ -129,16 +129,16 @@ export default function BarterDetailsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center">
-        <div className="text-2xl font-bold">Loading...</div>
+      <div className="min-h-screen bg-gradient-to-br from-black via-[#0f0f1e] to-black flex items-center justify-center">
+        <div className="text-2xl font-bold text-white">Loading...</div>
       </div>
     )
   }
 
   if (!barter) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center">
-        <div className="text-2xl font-bold">Barter not found</div>
+      <div className="min-h-screen bg-gradient-to-br from-black via-[#0f0f1e] to-black flex items-center justify-center">
+        <div className="text-2xl font-bold text-white">Barter not found</div>
       </div>
     )
   }
@@ -153,28 +153,28 @@ export default function BarterDetailsPage() {
   console.log('Is Recipient?', isRecipient)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-black via-[#0f0f1e] to-black p-8">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="mb-8">
           <button
             onClick={() => router.back()}
-            className="px-4 py-2 bg-white border-2 border-black rounded font-bold hover:bg-gray-100 transition"
+            className="px-4 py-2 border border-white/20 bg-white/10 rounded font-bold text-gray-300 hover:bg-white/20 transition"
           >
             ← Back
           </button>
         </div>
 
         {/* Barter Details Card */}
-        <div className="bg-white border-4 border-black rounded-lg p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-          <h1 className="text-3xl font-black mb-6">🤝 Barter Proposal</h1>
+        <div className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg p-8">
+          <h1 className="text-3xl font-black mb-6 text-white">🤝 Barter Proposal</h1>
 
           {/* Status Badge */}
-          <div className={`inline-block px-4 py-2 rounded-lg border-2 border-black font-bold mb-6 ${
-            barter.status === 'pending' ? 'bg-blue-100 text-blue-800' :
-            barter.status === 'accepted' ? 'bg-green-100 text-green-800' :
-            barter.status === 'rejected' ? 'bg-red-100 text-red-800' :
-            'bg-gray-100 text-gray-800'
+          <div className={`inline-block px-4 py-2 rounded-lg border font-bold mb-6 ${
+            barter.status === 'pending' ? 'bg-blue-500/20 border-blue-500/50 text-blue-300' :
+            barter.status === 'accepted' ? 'bg-green-500/20 border-green-500/50 text-green-300' :
+            barter.status === 'rejected' ? 'bg-red-500/20 border-red-500/50 text-red-300' :
+            'bg-gray-500/20 border-gray-500/50 text-gray-300'
           }`}>
             {barter.status === 'pending' && '⏳ Pending'}
             {barter.status === 'accepted' && '✅ Accepted'}
@@ -185,42 +185,42 @@ export default function BarterDetailsPage() {
           {/* Details */}
           <div className="space-y-4 mb-8">
             <div>
-              <div className="text-sm font-bold text-gray-600">Skill Offered</div>
-              <div className="text-xl font-bold">{barter.skill_offered}</div>
+              <div className="text-sm font-bold text-gray-400">Skill Offered</div>
+              <div className="text-xl font-bold text-white">{barter.skill_offered}</div>
             </div>
 
             <div>
-              <div className="text-sm font-bold text-gray-600">Skill Requested</div>
-              <div className="text-xl font-bold">{barter.skill_requested}</div>
+              <div className="text-sm font-bold text-gray-400">Skill Requested</div>
+              <div className="text-xl font-bold text-white">{barter.skill_requested}</div>
             </div>
 
             <div className="flex gap-4">
               <div>
-                <div className="text-sm font-bold text-gray-600">Duration</div>
-                <div className="text-lg font-bold">{barter.duration} days</div>
+                <div className="text-sm font-bold text-gray-400">Duration</div>
+                <div className="text-lg font-bold text-white">{barter.duration} days</div>
               </div>
 
               <div>
-                <div className="text-sm font-bold text-gray-600">Deposit Amount</div>
-                <div className="text-lg font-bold">{barter.deposit_amount} CELO</div>
+                <div className="text-sm font-bold text-gray-400">Deposit Amount</div>
+                <div className="text-lg font-bold text-white">{barter.deposit_amount} CELO</div>
               </div>
             </div>
 
             {barter.description && (
               <div>
-                <div className="text-sm font-bold text-gray-600">Description</div>
-                <div className="text-lg">{barter.description}</div>
+                <div className="text-sm font-bold text-gray-400">Description</div>
+                <div className="text-lg text-gray-300">{barter.description}</div>
               </div>
             )}
 
             {barter.blockchain_tx_hash && (
               <div>
-                <div className="text-sm font-bold text-gray-600">Blockchain Transaction</div>
+                <div className="text-sm font-bold text-gray-400">Blockchain Transaction</div>
                 <a
                   href={`https://celo-sepolia.blockscout.com/tx/${barter.blockchain_tx_hash}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline font-mono text-sm"
+                  className="text-[#3B82F6] hover:underline font-mono text-sm"
                 >
                   {barter.blockchain_tx_hash.slice(0, 10)}...{barter.blockchain_tx_hash.slice(-8)}
                 </a>
@@ -233,22 +233,22 @@ export default function BarterDetailsPage() {
             <>
               {/* Wallet Connection */}
               {!walletConnected ? (
-                <div className="mb-6 bg-yellow-100 border-4 border-black rounded-lg p-6 text-center">
+                <div className="mb-6 bg-amber-500/10 border border-amber-500/30 rounded-lg p-6 text-center">
                   <div className="text-4xl mb-4">🦊</div>
-                  <h3 className="text-xl font-black mb-4">Connect MetaMask</h3>
-                  <p className="text-sm font-semibold mb-4">
+                  <h3 className="text-xl font-black mb-4 text-amber-300">Connect MetaMask</h3>
+                  <p className="text-sm font-semibold mb-4 text-amber-200">
                     You need to connect your wallet to accept this barter
                   </p>
                   <button
                     onClick={connectWallet}
-                    className="px-6 py-3 bg-[#FCFF52] border-4 border-black rounded-lg font-black hover:bg-yellow-300 transition"
+                    className="px-6 py-3 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] rounded-lg font-black text-white hover:shadow-lg hover:shadow-[#3B82F6]/50 transition"
                   >
                     Connect Wallet
                   </button>
                 </div>
               ) : (
-                <div className="mb-6 bg-green-100 border-2 border-black rounded-lg p-4">
-                  <div className="font-bold">✅ Wallet Connected</div>
+                <div className="mb-6 bg-green-500/10 border border-green-500/30 rounded-lg p-4">
+                  <div className="font-bold text-green-300">✅ Wallet Connected</div>
                 </div>
               )}
 
@@ -257,20 +257,20 @@ export default function BarterDetailsPage() {
                 <button
                   onClick={handleAccept}
                   disabled={!walletConnected || accepting}
-                  className="flex-1 px-6 py-4 bg-[#35D07F] border-4 border-black rounded-lg font-black text-white hover:bg-[#2ab56f] transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 px-6 py-4 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] rounded-lg font-black text-white hover:shadow-lg hover:shadow-[#3B82F6]/50 transition disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {accepting ? 'Accepting...' : '✅ Accept Barter'}
                 </button>
                 <button
                   onClick={handleReject}
                   disabled={accepting}
-                  className="flex-1 px-6 py-4 bg-red-400 border-4 border-black rounded-lg font-black text-white hover:bg-red-500 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 px-6 py-4 bg-red-500/20 border border-red-500/50 rounded-lg font-black text-red-300 hover:bg-red-500/30 transition disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   ❌ Reject
                 </button>
               </div>
 
-              <div className="mt-4 text-sm text-gray-600 text-center">
+              <div className="mt-4 text-sm text-gray-400 text-center">
                 ⚠️ You'll need to deposit {barter.deposit_amount} CELO to accept this barter
               </div>
             </>
@@ -278,19 +278,19 @@ export default function BarterDetailsPage() {
 
           {/* Message for Proposer */}
           {!isRecipient && barter.status === 'pending' && (
-            <div className="bg-blue-100 border-2 border-black rounded-lg p-4 text-center">
-              <div className="font-bold text-blue-800">⏳ Waiting for the other user to accept</div>
+            <div className="bg-blue-500/20 border border-blue-500/50 rounded-lg p-4 text-center">
+              <div className="font-bold text-blue-300">⏳ Waiting for the other user to accept</div>
             </div>
           )}
 
           {/* Accepted Status */}
           {barter.status === 'accepted' && (
-            <div className="bg-green-100 border-2 border-black rounded-lg p-4 text-center">
-              <div className="font-bold text-green-800">✅ Barter is active!</div>
-              <div className="text-sm text-green-600 mt-2">You can now start video calls and chat</div>
+            <div className="bg-green-500/20 border border-green-500/50 rounded-lg p-4 text-center">
+              <div className="font-bold text-green-300">✅ Barter is active!</div>
+              <div className="text-sm text-green-400 mt-2">You can now start video calls and chat</div>
               <button
                 onClick={() => router.push('/dashboard/skill-exchange')}
-                className="mt-4 px-6 py-3 bg-[#35D07F] border-2 border-black rounded-lg font-bold text-white hover:bg-[#2ab56f] transition"
+                className="mt-4 px-6 py-3 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] rounded-lg font-bold text-white hover:shadow-lg hover:shadow-[#3B82F6]/50 transition"
               >
                 Go to Skill Exchange
               </button>
