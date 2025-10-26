@@ -572,20 +572,20 @@ HireNexa uses **11 Solidity smart contracts** deployed on Celo blockchain:
 
 7. **RecruiterEscrow.sol** - Manage recruiter applications
    - 10 cUSD deposit required
-   - Platform fee: 5% (0.5 cUSD)
-   - Refund on approval: 9.5 cUSD
-   - Refund on rejection: 10 cUSD
+   - Platform fee: 5% (0.5 Celo Sepolia)
+   - Refund on approval: 9.5 Celo Sepolia
+   - Refund on rejection: 10 Celo Sepolia
 
 8. **PeerReviewEscrow.sol** - Manage peer reviewer applications
    - 5 cUSD deposit required
-   - Verification reward: 5 cUSD
-   - Platform fee: 10% (0.5 cUSD)
+   - Verification reward: 5 celo Sepolia
+   - Platform fee: 10% (0.5 Celo Sepolia)
    - Reviewer earns: 4.5 cUSD per verification
 
 ### Skill Exchange Contracts
 
 9. **SkillBarterEscrow.sol** - Facilitate skill exchanges
-   - 2 cUSD deposit per user
+   - 2 Selo Cepolia deposit per user
    - Refunded on completion
    - NFT certificates for both
    - Automated matching
