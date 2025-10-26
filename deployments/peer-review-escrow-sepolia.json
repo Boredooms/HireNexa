@@ -1,0 +1,10 @@
+{
+  "network": "celo-sepolia",
+  "chainId": 11142220,
+  "contract": "PeerReviewEscrow",
+  "address": "0x824158217ad82588840C4B9c78882755581DfBC6",
+  "admin": "0xa8491f1D8e6F4c8eD061667532f01028C8F929E5",
+  "cUSDToken": "0x765de816845861e75a25fca122bb6baa3c1ffeac",
+  "deployedAt": "2025-10-25T07:43:10.477Z",
+  "blockExplorer": "https://celo-sepolia.blockscout.com/address/0x824158217ad82588840C4B9c78882755581DfBC6"
+}

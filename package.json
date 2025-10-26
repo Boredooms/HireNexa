@@ -1,0 +1,60 @@
+{
+  "name": "hirenexa",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "compile": "hardhat compile",
+    "deploy:sepolia": "hardhat run scripts/deploy-sepolia.js --network celoSepolia",
+    "deploy:local": "hardhat run scripts/deploy-local.js --network localhost",
+    "deploy:alfajores": "hardhat run scripts/deploy-contracts.js --network alfajores",
+    "deploy:mainnet": "hardhat run scripts/deploy-mainnet.js --network celo",
+    "node": "hardhat node",
+    "test": "hardhat test"
+  },
+  "dependencies": {
+    "@celo/contractkit": "^10.0.1",
+    "@clerk/nextjs": "^6.33.7",
+    "@google/generative-ai": "^0.24.1",
+    "@huggingface/inference": "^4.11.3",
+    "@octokit/rest": "^20.0.2",
+    "@openzeppelin/contracts": "^5.0.0",
+    "@supabase/ssr": "^0.5.2",
+    "@supabase/supabase-js": "^2.45.4",
+    "@talkjs/react": "^0.1.11",
+    "@zegocloud/zego-uikit-prebuilt": "^2.17.0",
+    "agora-rtc-react": "^2.5.0",
+    "agora-rtc-sdk-ng": "^4.24.0",
+    "ethers": "^6.15.0",
+    "lucide-react": "^0.546.0",
+    "next": "^14.2.33",
+    "ogl": "^1.0.11",
+    "openai": "^4.67.3",
+    "pinata-web3": "^0.5.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@types/cookie": "^0.6.0",
+    "@types/node": "^20.17.6",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "autoprefixer": "^10.4.20",
+    "dotenv": "^16.6.1",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "14.2.15",
+    "hardhat": "^2.26.3",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

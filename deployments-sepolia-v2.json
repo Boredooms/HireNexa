@@ -1,0 +1,11 @@
+{
+  "network": "celo-sepolia",
+  "chainId": 11142220,
+  "deployer": "0xa8491f1D8e6F4c8eD061667532f01028C8F929E5",
+  "contracts": {
+    "SkillVerification": "0xede864D646618a8BBe096D1c366bcCEad6176626",
+    "JobMarketplace": "0x416670de06e295BeBa615e596aa4Eb9EB45676F4",
+    "UpdatablePortfolioNFT": "0x44C48Eb4049B68b79bdFcB65F659b94f88baD787"
+  },
+  "deployedAt": "2025-10-22T19:57:26.768Z"
+}

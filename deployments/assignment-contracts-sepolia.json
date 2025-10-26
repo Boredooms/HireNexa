@@ -1,0 +1,17 @@
+{
+  "network": "celo-sepolia",
+  "chainId": 11142220,
+  "deployer": "0xa8491f1D8e6F4c8eD061667532f01028C8F929E5",
+  "contracts": {
+    "AssignmentCertificate": {
+      "address": "0xc2A7Ee7d0c6ca655b137515abe15b1C728E91B68",
+      "txHash": "0xed9103edc7b6707b57cb5d41ac67fa3a6792b09afb81b0c3573f82c321f257cf"
+    },
+    "AssignmentEscrow": {
+      "address": "0xEb5386911864B127949e6d4b7A6C3f4A21FB478B",
+      "txHash": "0x3328342801ca590c722a05e227950038477f867b5134db6f95925f1fb0d7b63e"
+    }
+  },
+  "celoToken": "0x0000000000000000000000000000000000000000",
+  "deployedAt": "2025-10-23T13:36:05.626Z"
+}
